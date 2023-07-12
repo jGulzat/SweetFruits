@@ -11,7 +11,7 @@ import SnapKit
 class SplashViewController: UIViewController {
     
     private let bgImageView: UIImageView = {
-        let bgImage = UIImageView(image: UIImage(named: "ic_main"))
+        let bgImage = UIImageView(image: UIImage(named: "ic_background"))
         bgImage.contentMode = .scaleAspectFill
         return bgImage
     }()
@@ -30,7 +30,7 @@ class SplashViewController: UIViewController {
         
         initUI()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let homeVC = HomeViewController()
             let navigation = UINavigationController(rootViewController: homeVC)
             navigation.modalPresentationStyle = .fullScreen

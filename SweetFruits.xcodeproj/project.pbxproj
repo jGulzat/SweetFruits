@@ -13,6 +13,9 @@
 		7CA304CC2A5EE6F2004C3CB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA304CB2A5EE6F2004C3CB0 /* Assets.xcassets */; };
 		7CA304CF2A5EE6F2004C3CB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA304CD2A5EE6F2004C3CB0 /* LaunchScreen.storyboard */; };
 		7CA304DC2A5EF4D3004C3CB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA304DB2A5EF4D3004C3CB0 /* HomeViewController.swift */; };
+		7CBA4D912A62B831005A84AE /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4D902A62B831005A84AE /* ShopViewController.swift */; };
+		7CBA4D942A62B849005A84AE /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4D932A62B849005A84AE /* RulesViewController.swift */; };
+		7CBA4D972A62BB8C005A84AE /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4D962A62BB8C005A84AE /* LevelsViewController.swift */; };
 		926C0513A02DDD5581304F81 /* Pods_SweetFruits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B267005C737B1B6D3F7E1DB /* Pods_SweetFruits.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +29,9 @@
 		7CA304CE2A5EE6F2004C3CB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CA304D02A5EE6F2004C3CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CA304DB2A5EF4D3004C3CB0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7CBA4D902A62B831005A84AE /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		7CBA4D932A62B849005A84AE /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		7CBA4D962A62BB8C005A84AE /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
 		9B48EE4C2D97E8DDAEE91491 /* Pods-SweetFruits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SweetFruits.debug.xcconfig"; path = "Target Support Files/Pods-SweetFruits/Pods-SweetFruits.debug.xcconfig"; sourceTree = "<group>"; };
 		BBA2B6A02215B234154AA511 /* Pods-SweetFruits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SweetFruits.release.xcconfig"; path = "Target Support Files/Pods-SweetFruits/Pods-SweetFruits.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +107,9 @@
 		7CA304D82A5EE85F004C3CB0 /* flow */ = {
 			isa = PBXGroup;
 			children = (
+				7CBA4D952A62BB74005A84AE /* Levels */,
+				7CBA4D922A62B83C005A84AE /* Rules */,
+				7CBA4D8F2A62B7E4005A84AE /* Shop */,
 				7CA304DA2A5EF4B1004C3CB0 /* Home */,
 				7CA304D92A5EE881004C3CB0 /* Welcome */,
 			);
@@ -121,6 +130,30 @@
 				7CA304DB2A5EF4D3004C3CB0 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		7CBA4D8F2A62B7E4005A84AE /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				7CBA4D902A62B831005A84AE /* ShopViewController.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		7CBA4D922A62B83C005A84AE /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				7CBA4D932A62B849005A84AE /* RulesViewController.swift */,
+			);
+			path = Rules;
+			sourceTree = "<group>";
+		};
+		7CBA4D952A62BB74005A84AE /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				7CBA4D962A62BB8C005A84AE /* LevelsViewController.swift */,
+			);
+			path = Levels;
 			sourceTree = "<group>";
 		};
 		EC8EDAC36EAD5AD96821FE83 /* Frameworks */ = {
@@ -247,7 +280,10 @@
 			files = (
 				7CA304C72A5EE6F0004C3CB0 /* SplashViewController.swift in Sources */,
 				7CA304C32A5EE6F0004C3CB0 /* AppDelegate.swift in Sources */,
+				7CBA4D912A62B831005A84AE /* ShopViewController.swift in Sources */,
 				7CA304C52A5EE6F0004C3CB0 /* SceneDelegate.swift in Sources */,
+				7CBA4D972A62BB8C005A84AE /* LevelsViewController.swift in Sources */,
+				7CBA4D942A62B849005A84AE /* RulesViewController.swift in Sources */,
 				7CA304DC2A5EF4D3004C3CB0 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
