@@ -7,13 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
-    private let bgImageView: UIImageView = {
-        let bgImage = UIImageView(image: UIImage(named: "ic_background"))
-        bgImage.contentMode = .scaleAspectFill
-        return bgImage
-    }()
+class HomeViewController: BaseViewController {
     
     private let logoImage: UIImageView = {
         let logo = UIImageView(image: UIImage(named: "ic_main_logo"))
@@ -119,21 +113,15 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         initUI()
+        initAction()
     }
     
     private func initUI() {
-        let heigth = UIScreen.main.bounds.height
-        print("heigth: \(heigth)")
-        view.addSubview(bgImageView)
+        
         view.addSubview(settingBtn)
         view.addSubview(logoImage)
         view.addSubview(hStack)
         view.addSubview(VStack)
-        
-        bgImageView.snp.makeConstraints { make in
-            make.top.trailing.bottom.trailing.equalToSuperview()
-            make.height.width.equalTo(view)
-        }
         
         settingBtn.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20.0)
@@ -170,6 +158,33 @@ class HomeViewController: UIViewController {
         VStack.addArrangedSubview(shopBtn)
         VStack.addArrangedSubview(rulesBtn)
     }
+    
+    private func initAction() {
+        startBtn.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        levelsBtn.addTarget(self, action: #selector(showLevels), for: .touchUpInside)
+        shopBtn.addTarget(self, action: #selector(showShop), for: .touchUpInside)
+        rulesBtn.addTarget(self, action: #selector(showRules), for: .touchUpInside)
+    }
+    
+    @objc func showRules(_ sender: UIButton) {
+        let vc = RulesViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func showShop(_ sender: UIButton) {
+        let vc = ShopViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func showLevels(_ sender: UIButton) {
+        let vc = LevelsViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func startGame(_ sender: UIButton) {
+        print("start game")
+    }
+    
     
     
 }

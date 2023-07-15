@@ -7,14 +7,8 @@
 
 import UIKit
 
-class LevelsViewController: UIViewController {
+class LevelsViewController: BaseViewController {
 
-    private let bgImageView: UIImageView = {
-        let bgImage = UIImageView(image: UIImage(named: "ic_background"))
-        bgImage.contentMode = .scaleAspectFill
-        return bgImage
-    }()
-    
     private let backBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "ic_back"), for: .normal)
@@ -23,7 +17,7 @@ class LevelsViewController: UIViewController {
     
     private let titleView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 33
+        view.layer.cornerRadius = 24
         view.layer.borderColor = UIColor.white.cgColor
         view.layer.borderWidth = 3
         view.backgroundColor = UIColor(red: 159/255, green: 81/255,
@@ -39,29 +33,81 @@ class LevelsViewController: UIViewController {
         return label
     }()
     
+    private let collectionView: UICollectionView = {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 88, height: 88)
+        layout.scrollDirection = .vertical
+    
+        layout.minimumLineSpacing = 32
+        
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(LevelCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        cv.backgroundColor = .clear
+        cv.showsVerticalScrollIndicator = false
+        return cv
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
         initUI()
+        initAction()
     }
     
     private func initUI() {
-        let heigth = UIScreen.main.bounds.height
-        print("heigth: \(heigth)")
-        view.addSubview(bgImageView)
+        let barHeigth = navigationItem.titleView?.bounds.height ?? 40
         view.addSubview(backBtn)
-        
-        bgImageView.snp.makeConstraints { make in
-            make.top.trailing.bottom.trailing.equalToSuperview()
-            make.height.width.equalTo(view)
-        }
+        view.addSubview(titleView)
+        titleView.addSubview(titleLabel)
+        view.addSubview(collectionView)
         
         backBtn.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20.0)
             make.top.equalToSuperview().offset(heigth < 670 ? 16 : 60)
             make.height.width.equalTo(40)
         }
+        
+        titleView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(barHeigth * 2)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(36)
+            make.top.bottom.equalToSuperview().inset(10)
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.top.equalTo(titleView.snp.bottom).offset(barHeigth)
+            make.bottom.equalToSuperview().offset(-20)
+        }
+    }
+    
+    private func initAction() {
+        backBtn.addTarget(self, action: #selector(popToRoot), for: .touchUpInside)
+    }
+
+}
+
+extension LevelsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected level: \(indexPath.row + 1)")
+    }
+}
+
+extension LevelsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        levelArr.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LevelCollectionViewCell
+        cell.setLevelNumber("\(indexPath.row + 1)", status: levelArr[indexPath.row])
+        return cell
     }
 
 }
