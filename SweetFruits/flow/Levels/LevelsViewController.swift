@@ -96,6 +96,11 @@ class LevelsViewController: BaseViewController {
 extension LevelsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected level: \(indexPath.row + 1)")
+        let vc = PlayViewController()
+        vc.levelNumber = "\(indexPath.row + 1)"
+        navigationController?.pushViewController(vc, animated: true)
+//        levelArr[indexPath.row] = true
+//        collectionView.reloadData()
     }
 }
 

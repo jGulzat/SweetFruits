@@ -9,6 +9,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
     let heigth = UIScreen.main.bounds.height
+    
     private let bgImageView: UIImageView = {
         let bgImage = UIImageView(image: UIImage(named: "ic_background"))
         bgImage.contentMode = .scaleAspectFill

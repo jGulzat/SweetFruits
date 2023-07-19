@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7C0D11D22A680A6E00CE050A /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D11D12A680A6E00CE050A /* LevelCollectionViewCell.swift */; };
 		7C0D11D42A68106A00CE050A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D11D32A68106A00CE050A /* Constants.swift */; };
+		7C0D11DD2A6815CD00CE050A /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D11DC2A6815CD00CE050A /* PlayViewController.swift */; };
+		7C0D11DF2A681B3700CE050A /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D11DE2A681B3700CE050A /* GameCollectionViewCell.swift */; };
+		7C0D11E22A68269800CE050A /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D11E12A68269800CE050A /* QuestionViewController.swift */; };
 		7C3EB20D2A66BC6800D876B3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EB20C2A66BC6800D876B3 /* BaseViewController.swift */; };
 		7CA304C32A5EE6F0004C3CB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA304C22A5EE6F0004C3CB0 /* AppDelegate.swift */; };
 		7CA304C52A5EE6F0004C3CB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA304C42A5EE6F0004C3CB0 /* SceneDelegate.swift */; };
@@ -16,6 +19,8 @@
 		7CA304CC2A5EE6F2004C3CB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA304CB2A5EE6F2004C3CB0 /* Assets.xcassets */; };
 		7CA304CF2A5EE6F2004C3CB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA304CD2A5EE6F2004C3CB0 /* LaunchScreen.storyboard */; };
 		7CA304DC2A5EF4D3004C3CB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA304DB2A5EF4D3004C3CB0 /* HomeViewController.swift */; };
+		7CA916992A696B610027E90D /* WonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA916982A696B610027E90D /* WonViewController.swift */; };
+		7CA9169B2A696B6D0027E90D /* OverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA9169A2A696B6D0027E90D /* OverViewController.swift */; };
 		7CBA4D912A62B831005A84AE /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4D902A62B831005A84AE /* ShopViewController.swift */; };
 		7CBA4D942A62B849005A84AE /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4D932A62B849005A84AE /* RulesViewController.swift */; };
 		7CBA4D972A62BB8C005A84AE /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4D962A62BB8C005A84AE /* LevelsViewController.swift */; };
@@ -26,6 +31,9 @@
 		4B267005C737B1B6D3F7E1DB /* Pods_SweetFruits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SweetFruits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0D11D12A680A6E00CE050A /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C0D11D32A68106A00CE050A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7C0D11DC2A6815CD00CE050A /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		7C0D11DE2A681B3700CE050A /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C0D11E12A68269800CE050A /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		7C3EB20C2A66BC6800D876B3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7CA304BF2A5EE6F0004C3CB0 /* SweetFruits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweetFruits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CA304C22A5EE6F0004C3CB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +43,8 @@
 		7CA304CE2A5EE6F2004C3CB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CA304D02A5EE6F2004C3CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CA304DB2A5EF4D3004C3CB0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7CA916982A696B610027E90D /* WonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WonViewController.swift; sourceTree = "<group>"; };
+		7CA9169A2A696B6D0027E90D /* OverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewController.swift; sourceTree = "<group>"; };
 		7CBA4D902A62B831005A84AE /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		7CBA4D932A62B849005A84AE /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		7CBA4D962A62BB8C005A84AE /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +71,23 @@
 				BBA2B6A02215B234154AA511 /* Pods-SweetFruits.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7C0D11DB2A6815AF00CE050A /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				7C0D11DC2A6815CD00CE050A /* PlayViewController.swift */,
+				7C0D11DE2A681B3700CE050A /* GameCollectionViewCell.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		7C0D11E02A68268500CE050A /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				7C0D11E12A68269800CE050A /* QuestionViewController.swift */,
+			);
+			path = Question;
 			sourceTree = "<group>";
 		};
 		7C3EB20B2A66BC5A00D876B3 /* Base */ = {
@@ -123,6 +150,9 @@
 		7CA304D82A5EE85F004C3CB0 /* flow */ = {
 			isa = PBXGroup;
 			children = (
+				7CA916972A696B1B0027E90D /* Result */,
+				7C0D11E02A68268500CE050A /* Question */,
+				7C0D11DB2A6815AF00CE050A /* Game */,
 				7CBA4D952A62BB74005A84AE /* Levels */,
 				7CBA4D922A62B83C005A84AE /* Rules */,
 				7CBA4D8F2A62B7E4005A84AE /* Shop */,
@@ -146,6 +176,15 @@
 				7CA304DB2A5EF4D3004C3CB0 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		7CA916972A696B1B0027E90D /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				7CA916982A696B610027E90D /* WonViewController.swift */,
+				7CA9169A2A696B6D0027E90D /* OverViewController.swift */,
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 		7CBA4D8F2A62B7E4005A84AE /* Shop */ = {
@@ -298,10 +337,15 @@
 				7C0D11D22A680A6E00CE050A /* LevelCollectionViewCell.swift in Sources */,
 				7CA304C72A5EE6F0004C3CB0 /* SplashViewController.swift in Sources */,
 				7CA304C32A5EE6F0004C3CB0 /* AppDelegate.swift in Sources */,
+				7CA9169B2A696B6D0027E90D /* OverViewController.swift in Sources */,
 				7CBA4D912A62B831005A84AE /* ShopViewController.swift in Sources */,
+				7C0D11DD2A6815CD00CE050A /* PlayViewController.swift in Sources */,
 				7CA304C52A5EE6F0004C3CB0 /* SceneDelegate.swift in Sources */,
+				7C0D11E22A68269800CE050A /* QuestionViewController.swift in Sources */,
 				7C0D11D42A68106A00CE050A /* Constants.swift in Sources */,
 				7CBA4D972A62BB8C005A84AE /* LevelsViewController.swift in Sources */,
+				7CA916992A696B610027E90D /* WonViewController.swift in Sources */,
+				7C0D11DF2A681B3700CE050A /* GameCollectionViewCell.swift in Sources */,
 				7C3EB20D2A66BC6800D876B3 /* BaseViewController.swift in Sources */,
 				7CBA4D942A62B849005A84AE /* RulesViewController.swift in Sources */,
 				7CA304DC2A5EF4D3004C3CB0 /* HomeViewController.swift in Sources */,

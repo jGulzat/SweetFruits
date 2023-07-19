@@ -172,6 +172,7 @@ class ShopViewController: BaseViewController {
     }
     
     private func initUI() {
+        
         view.addSubview(shopView)
         view.addSubview(closeBtn)
         shopView.addSubview(shopTitleLabel)
