@@ -42,6 +42,7 @@ struct Color {
 struct QuestionInfo {
     var question: String
     var answers: [String]
+    var coin: Int
     var correctAnswerIndex: Int
 }
 
@@ -49,27 +50,35 @@ extension QuestionInfo {
     static var elements: [QuestionInfo] = [
         QuestionInfo(question: "Which Egyptian god is depicted as a falcon?",
                      answers: ["SET", "OSIRIS", "GORE", "PTAN"],
+                     coin: 100,
                      correctAnswerIndex: 2),
         QuestionInfo(question: "Which Egyptian god is depicted as a falcon?",
                      answers: ["SET", "OSIRIS", "GORE", "PTAN"],
+                     coin: 120,
                      correctAnswerIndex: 2),
         QuestionInfo(question: "Which Egyptian god is depicted as a falcon?",
                      answers: ["SET", "OSIRIS", "GORE", "PTAN"],
+                     coin: 140,
                      correctAnswerIndex: 2),
         QuestionInfo(question: "Which Egyptian god is depicted as a falcon?",
                      answers: ["SET", "OSIRIS", "GORE", "PTAN"],
+                     coin: 110,
                      correctAnswerIndex: 2),
         QuestionInfo(question: "Which Egyptian god is depicted as a falcon?",
                      answers: ["SET", "OSIRIS", "GORE", "PTAN"],
+                     coin: 95,
                      correctAnswerIndex: 2),
         QuestionInfo(question: "Which Egyptian god is depicted as a falcon?",
                      answers: ["SET", "OSIRIS", "GORE", "PTAN"],
+                     coin: 75,
                      correctAnswerIndex: 2),
         QuestionInfo(question: "Which Egyptian god is depicted as a falcon?",
                      answers: ["SET", "OSIRIS", "GORE", "PTAN"],
+                     coin: 190,
                      correctAnswerIndex: 2),
         QuestionInfo(question: "Which Egyptian god is depicted as a falcon?",
                      answers: ["SET", "OSIRIS", "GORE", "PTAN"],
+                     coin: 150,
                      correctAnswerIndex: 2)
     ]
 }

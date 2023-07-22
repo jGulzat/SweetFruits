@@ -9,7 +9,8 @@ import UIKit
 
 class QuestionViewController: BaseViewController {
 
-    var info: QuestionInfo = QuestionInfo.elements[0]
+    private let info: QuestionInfo
+    private let level: Int
     
     private let questionView: UIView = {
         let view = UIView()
@@ -121,6 +122,16 @@ class QuestionViewController: BaseViewController {
         return stack
     }()
     
+    init(info: QuestionInfo, level: Int) {
+        self.info = info
+        self.level = level
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -204,7 +215,7 @@ class QuestionViewController: BaseViewController {
     }
     
     private func initAction() {
-        answer1View.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(popToRoot)))
+        answer1View.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(checkAnswer)))
         answer2View.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(checkAnswer)))
         answer3View.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(checkAnswer)))
         answer4View.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(checkAnswer)))
@@ -215,7 +226,9 @@ class QuestionViewController: BaseViewController {
         if let view = sender.view {
             print(view.tag)
             if view.tag == info.correctAnswerIndex {
-                let vc = WonViewController()
+                levelArr[level] = true
+                let coin = info.coin
+                let vc = WonViewController(coin: coin, level: level)
                 navigationController?.pushViewController(vc, animated: true)
             } else {
                 let vc = OverViewController()

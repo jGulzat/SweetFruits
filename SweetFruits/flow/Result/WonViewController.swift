@@ -9,6 +9,9 @@ import UIKit
 
 class WonViewController: BaseViewController {
 
+    private let coin: Int
+    private let level: Int
+    
     private let resultWonView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(red: 159/255, green: 81/255, blue: 254/255, alpha: 1)
@@ -82,13 +85,27 @@ class WonViewController: BaseViewController {
         return label
     }()
     
+    init(coin: Int, level: Int) {
+        self.coin = coin
+        self.level = level
+        super.init(nibName: nil, bundle: nil)
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initUI()
+        initData()
         initAction()
+    }
+    
+    private func initData() {
+        levelLabel.text = "LEVEL \(level)"
+        coinLabel.text = "+\(coin)"
     }
     
     private func initUI() {
@@ -169,7 +186,8 @@ class WonViewController: BaseViewController {
     }
     
     @objc func showNextLevel(_ sender: UITapGestureRecognizer) {
-        print("showNextLevel")
+        let vc = LevelsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

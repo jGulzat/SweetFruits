@@ -48,7 +48,6 @@ class HomeViewController: BaseViewController {
     
     private let startBtn: UIButton = {
         let btn = UIButton()
-       // btn.setImage(UIImage(named: "ic_start_btn"), for: .normal)
         btn.backgroundColor = .green
         btn.layer.cornerRadius = 24
         btn.layer.borderColor = UIColor.white.cgColor
@@ -56,13 +55,11 @@ class HomeViewController: BaseViewController {
         btn.setTitle("START", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
-        //.boldSystemFont(ofSize: 32)
         return btn
     }()
     
     private let levelsBtn: UIButton = {
         let btn = UIButton()
-       // btn.setImage(UIImage(named: "ic_levels_btn"), for: .normal)
         btn.backgroundColor = UIColor(red: 255/255, green: 221/255,
                                       blue: 23/255, alpha: 1)
         btn.layer.cornerRadius = 24
@@ -76,7 +73,6 @@ class HomeViewController: BaseViewController {
     
     private let shopBtn: UIButton = {
         let btn = UIButton()
-        //btn.setImage(UIImage(named: "ic_shop_btn"), for: .normal)
         btn.backgroundColor = UIColor(red: 255/255, green: 221/255,
                                       blue: 23/255, alpha: 1)
         btn.layer.cornerRadius = 24
@@ -90,7 +86,6 @@ class HomeViewController: BaseViewController {
     
     private let rulesBtn: UIButton = {
         let btn = UIButton()
-       // btn.setImage(UIImage(named: "ic_rules_btn"), for: .normal)
         btn.backgroundColor = UIColor(red: 255/255, green: 221/255,
                                       blue: 23/255, alpha: 1)
         btn.layer.cornerRadius = 24
@@ -167,24 +162,26 @@ class HomeViewController: BaseViewController {
     }
     
     @objc func showRules(_ sender: UIButton) {
-        let vc = RulesViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        print("sende: \(sender.tag)")
+        pushVC(RulesViewController())
     }
     
     @objc func showShop(_ sender: UIButton) {
-        let vc = ShopViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        print("sende: \(sender.tag)")
+        pushVC(ShopViewController())
     }
     
     @objc func showLevels(_ sender: UIButton) {
-        let vc = LevelsViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        print("sende: \(sender.tag)")
+      pushVC(LevelsViewController())
     }
     
     @objc func startGame(_ sender: UIButton) {
-        print("start game")
+        print("sende: \(sender.tag)")
+      pushVC(PlayViewController(levelNumber: 1))
     }
     
-    
-    
+    func pushVC(_ vc: UIViewController) {
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

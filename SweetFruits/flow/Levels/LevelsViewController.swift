@@ -9,11 +9,12 @@ import UIKit
 
 class LevelsViewController: BaseViewController {
 
-    private let backBtn: UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(named: "ic_back"), for: .normal)
-        return btn
-    }()
+    private let backIV: UIImageView = UIImageView(image: UIImage(named: "ic_back"))
+//    = {
+//        let btn = UIButton()
+//        btn.setImage(UIImage(named: "ic_back"), for: .normal)
+//        return btn
+//    }()
     
     private let titleView: UIView = {
         let view = UIView()
@@ -58,15 +59,16 @@ class LevelsViewController: BaseViewController {
     }
     
     private func initUI() {
-        let barHeigth = navigationItem.titleView?.bounds.height ?? 40
-        view.addSubview(backBtn)
+        backIV.isUserInteractionEnabled = true
+        let barHeigth = navigationController?.navigationBar.bounds.height ?? 40
+        view.addSubview(backIV)
         view.addSubview(titleView)
         titleView.addSubview(titleLabel)
         view.addSubview(collectionView)
         
-        backBtn.snp.makeConstraints { make in
+        backIV.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20.0)
-            make.top.equalToSuperview().offset(heigth < 670 ? 16 : 60)
+            make.top.equalToSuperview().offset(barHeigth * 2)
             make.height.width.equalTo(40)
         }
         
@@ -88,7 +90,13 @@ class LevelsViewController: BaseViewController {
     }
     
     private func initAction() {
-        backBtn.addTarget(self, action: #selector(popToRoot), for: .touchUpInside)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(popToRoot))
+        backIV.addGestureRecognizer(gesture)
+            //.addTarget(self, action: #selector(popToRoot), for: .touchUpInside)
+    }
+                          
+    @objc func goHome(_ sender : UIButton) {
+        navigationController?.popToRootViewController(animated: true)
     }
 
 }
@@ -96,11 +104,8 @@ class LevelsViewController: BaseViewController {
 extension LevelsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected level: \(indexPath.row + 1)")
-        let vc = PlayViewController()
-        vc.levelNumber = "\(indexPath.row + 1)"
+        let vc = PlayViewController(levelNumber: indexPath.row + 1)
         navigationController?.pushViewController(vc, animated: true)
-//        levelArr[indexPath.row] = true
-//        collectionView.reloadData()
     }
 }
 

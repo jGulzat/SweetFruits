@@ -10,9 +10,9 @@
 		7C0D11D22A680A6E00CE050A /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D11D12A680A6E00CE050A /* LevelCollectionViewCell.swift */; };
 		7C0D11D42A68106A00CE050A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D11D32A68106A00CE050A /* Constants.swift */; };
 		7C0D11DD2A6815CD00CE050A /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D11DC2A6815CD00CE050A /* PlayViewController.swift */; };
-		7C0D11DF2A681B3700CE050A /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D11DE2A681B3700CE050A /* GameCollectionViewCell.swift */; };
 		7C0D11E22A68269800CE050A /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D11E12A68269800CE050A /* QuestionViewController.swift */; };
 		7C3EB20D2A66BC6800D876B3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EB20C2A66BC6800D876B3 /* BaseViewController.swift */; };
+		7C4201162A6C1E9B001ED9AF /* WheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4201152A6C1E9B001ED9AF /* WheelViewController.swift */; };
 		7CA304C32A5EE6F0004C3CB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA304C22A5EE6F0004C3CB0 /* AppDelegate.swift */; };
 		7CA304C52A5EE6F0004C3CB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA304C42A5EE6F0004C3CB0 /* SceneDelegate.swift */; };
 		7CA304C72A5EE6F0004C3CB0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA304C62A5EE6F0004C3CB0 /* SplashViewController.swift */; };
@@ -32,9 +32,9 @@
 		7C0D11D12A680A6E00CE050A /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C0D11D32A68106A00CE050A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7C0D11DC2A6815CD00CE050A /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
-		7C0D11DE2A681B3700CE050A /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C0D11E12A68269800CE050A /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		7C3EB20C2A66BC6800D876B3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		7C4201152A6C1E9B001ED9AF /* WheelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelViewController.swift; sourceTree = "<group>"; };
 		7CA304BF2A5EE6F0004C3CB0 /* SweetFruits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweetFruits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CA304C22A5EE6F0004C3CB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CA304C42A5EE6F0004C3CB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				7C0D11DC2A6815CD00CE050A /* PlayViewController.swift */,
-				7C0D11DE2A681B3700CE050A /* GameCollectionViewCell.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -85,6 +84,7 @@
 		7C0D11E02A68268500CE050A /* Question */ = {
 			isa = PBXGroup;
 			children = (
+				7C4201172A6C2320001ED9AF /* FortuneWheel */,
 				7C0D11E12A68269800CE050A /* QuestionViewController.swift */,
 			);
 			path = Question;
@@ -97,6 +97,14 @@
 				7C0D11D32A68106A00CE050A /* Constants.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		7C4201172A6C2320001ED9AF /* FortuneWheel */ = {
+			isa = PBXGroup;
+			children = (
+				7C4201152A6C1E9B001ED9AF /* WheelViewController.swift */,
+			);
+			path = FortuneWheel;
 			sourceTree = "<group>";
 		};
 		7CA304B62A5EE6F0004C3CB0 = {
@@ -336,6 +344,7 @@
 			files = (
 				7C0D11D22A680A6E00CE050A /* LevelCollectionViewCell.swift in Sources */,
 				7CA304C72A5EE6F0004C3CB0 /* SplashViewController.swift in Sources */,
+				7C4201162A6C1E9B001ED9AF /* WheelViewController.swift in Sources */,
 				7CA304C32A5EE6F0004C3CB0 /* AppDelegate.swift in Sources */,
 				7CA9169B2A696B6D0027E90D /* OverViewController.swift in Sources */,
 				7CBA4D912A62B831005A84AE /* ShopViewController.swift in Sources */,
@@ -345,7 +354,6 @@
 				7C0D11D42A68106A00CE050A /* Constants.swift in Sources */,
 				7CBA4D972A62BB8C005A84AE /* LevelsViewController.swift in Sources */,
 				7CA916992A696B610027E90D /* WonViewController.swift in Sources */,
-				7C0D11DF2A681B3700CE050A /* GameCollectionViewCell.swift in Sources */,
 				7C3EB20D2A66BC6800D876B3 /* BaseViewController.swift in Sources */,
 				7CBA4D942A62B849005A84AE /* RulesViewController.swift in Sources */,
 				7CA304DC2A5EF4D3004C3CB0 /* HomeViewController.swift in Sources */,

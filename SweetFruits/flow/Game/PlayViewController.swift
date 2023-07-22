@@ -9,8 +9,8 @@ import UIKit
 
 class PlayViewController: BaseViewController {
 
-    var levelNumber = ""
-    var killerIndex = 14
+    var levelNumber: Int
+    var killerIndex: Int
     
     private let settingBtn: UIButton = {
         let btn = UIButton()
@@ -46,15 +46,25 @@ class PlayViewController: BaseViewController {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 74, height: 74)
         layout.scrollDirection = .vertical
-    
-        //layout.minimumLineSpacing = 32
-        
+
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.register(GameCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         cv.backgroundColor = .clear
         cv.showsVerticalScrollIndicator = false
         return cv
     }()
+    
+    init(levelNumber: Int, killerIndex: Int = 14) {
+        self.levelNumber = levelNumber
+        self.killerIndex = killerIndex
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +89,7 @@ class PlayViewController: BaseViewController {
         
         titleView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(barHeigth * 2)
+            make.top.equalToSuperview().offset(heigth < 670 ? 16 : barHeigth * 2)
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -95,7 +105,7 @@ class PlayViewController: BaseViewController {
         
         collectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(20)
-            make.top.equalTo(titleView.snp.bottom).offset(barHeigth)
+            make.top.equalTo(titleView.snp.bottom).offset(heigth < 670 ? 12 : barHeigth)
             make.bottom.equalTo(goHomeBtn.snp.top).offset(8)
         }
         
@@ -113,83 +123,55 @@ class PlayViewController: BaseViewController {
 
 extension PlayViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected row: \(indexPath.row + 1)")
-//        let vc = QuestionViewController()
-//        navigationController?.pushViewController(vc, animated: true)
-//        switch gameRowInfo[indexPath.row] {
-//        case .way:
-//            gameRowInfo[indexPath.row] = .player
-//            if indexPath.row % 4 == 0 {
-//                print("krainiy")
-//            } else if indexPath.row > 3 && indexPath.row < gameRowInfo.count - 4 {
-//                print("way")
-//            }
-//        case .killer:
-//            let vc = OverViewController()
-//            navigationController?.pushViewController(vc, animated: true)
-//        default:
-//            print("default")
-//        }
+
         if indexPath.row == killerIndex {
-            print("killer")
-        } else {
-            
+            showResultGame(true)
+        } else if gameRowInfo[indexPath.row] == .way  {
+            print("indexPath.row: \(indexPath.row): \(gameRowInfo[indexPath.row])")
             if indexPath.row % 4 == 0 && indexPath.row > 3 && indexPath.row < gameRowInfo.count - 4 {
-                print("krainiy left")
-                let i1 = indexPath.row + 4
-                let i2 = indexPath.row + 1
-                let i3 = indexPath.row - 4
-                print("i1: \(i1), i2: \(i2), i3: \(i3)")
-                
                 setGameStatus(indexPath.row, 4, 1, -4)
             } else if indexPath.row < 4 {
-                print("krainiy top")
-                let i1 = indexPath.row + 4
                 
                 if indexPath.row == 1 || indexPath.row == 2 {
-                    let i2 = indexPath.row + 1
-                    let i3 = indexPath.row - 1
                     
-                    print("i1: \(i1), i2: \(i2), i3: \(i3)")
                     setGameStatus(indexPath.row, 4, 1, -1)
                 } else if indexPath.row == 0 {
-                    let i2 = indexPath.row + 1
-                    print("i1: \(i1), i2: \(i2)")
+                    
                     setGameStatus(indexPath.row, 4, 1)
                 } else if indexPath.row == 3 {
-                    let i2 = indexPath.row - 1
-                    print("i1: \(i1), i2: \(i2)")
+                    
                     setGameStatus(indexPath.row, 4, -1)
                 }
-            } else if indexPath.row < 24 && indexPath.row > 19{
-                print("krainiy bottom")
-                let i1 = indexPath.row - 4
+            } else if indexPath.row < 24 && indexPath.row > 19 {
+                
                 if indexPath.row == 21 || indexPath.row == 22 {
-                    let i2 = indexPath.row + 1
-                    let i3 = indexPath.row - 1
-                    print("i1: \(i1), i2: \(i2), i3: \(i3)")
+                    
                     setGameStatus(indexPath.row, -4, 1, -1)
                 } else if indexPath.row == 20 {
-                    let i2 = indexPath.row + 1
-                    print("i1: \(i1), i2: \(i2)")
+                    
                     setGameStatus(indexPath.row, -4, 1)
                 } else if indexPath.row == 23 {
-                    let i2 = indexPath.row - 1
+                    
                     setGameStatus(indexPath.row, -4, -1)
-                    print("i1: \(i1), i2: \(i2)")
                 }
             } else if (indexPath.row + 1) % 4 == 0 {
-                print("krainiy rigth")
-                let i1 = indexPath.row + 4
-                let i2 = indexPath.row - 1
-                let i3 = indexPath.row - 4
-                print("i1: \(i1), i2: \(i2), i3: \(i3)")
                 setGameStatus(indexPath.row, 4, -1, -4)
+            } else {
+                setGameStatus(indexPath.row, 4, -1, -4, 1)
             }
+            collectionView.reloadData()
+            showResultGame(false)
         }
-        
-        collectionView.reloadData()
-        
+    }
+    
+    func showResultGame(_ isKiller: Bool) {
+        if isKiller {
+            let vc = OverViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = WheelViewController(level: levelNumber)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -199,7 +181,7 @@ extension PlayViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GameCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
        
         switch gameRowInfo[indexPath.row] {
         case .way:
@@ -216,10 +198,8 @@ extension PlayViewController: UICollectionViewDataSource {
         gameRowInfo.indices.forEach {
             if $0 == index + index1  || $0 == index + index2 || $0 == index + index3{
                 gameRowInfo[$0] = .way
-            } else if $0 == index {
-                gameRowInfo[$0] = .player
             } else {
-                gameRowInfo[$0] = .simpleRow
+                setway(index, i: $0)
             }
         }
     }
@@ -228,11 +208,28 @@ extension PlayViewController: UICollectionViewDataSource {
         gameRowInfo.indices.forEach {
             if $0 == index + index1  || $0 == index + index2 {
                 gameRowInfo[$0] = .way
-            } else if $0 == index {
-                gameRowInfo[$0] = .player
             } else {
-                gameRowInfo[$0] = .simpleRow
+                setway(index, i: $0)
             }
         }
+    }
+    
+    func setGameStatus(_ index: Int, _ index1: Int, _ index2: Int, _ index3: Int, _ index4: Int) {
+        gameRowInfo.indices.forEach {
+            if $0 == index + index1  || $0 == index + index2
+                || $0 == index + index3 || $0 == index + index4 {
+                gameRowInfo[$0] = .way
+            } else {
+                setway(index, i: $0)
+            }
+        }
+    }
+    
+    func setway(_ index: Int, i: Int) {
+      if i == index {
+          gameRowInfo[i] = .player
+      } else {
+          gameRowInfo[i] = .simpleRow
+      }
     }
 }

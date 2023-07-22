@@ -105,6 +105,7 @@ class OverViewController: BaseViewController {
     }
     
     @objc func replay(_ sender: UITapGestureRecognizer) {
-        print("showNextLevel")
+        let vc = PlayViewController(levelNumber: 1)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

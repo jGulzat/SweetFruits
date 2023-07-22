@@ -31,7 +31,7 @@ class SplashViewController: UIViewController {
         initUI()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let homeVC = PlayViewController() // HomeViewController()  // 
+            let homeVC = HomeViewController() // HomeViewController() // WheelViewController() // 
             let navigation = UINavigationController(rootViewController: homeVC)
             navigation.modalPresentationStyle = .fullScreen
             navigation.modalTransitionStyle = .flipHorizontal
@@ -54,4 +54,3 @@ class SplashViewController: UIViewController {
         }
     }
 }
-
