@@ -226,7 +226,7 @@ class QuestionViewController: BaseViewController {
         if let view = sender.view {
             print(view.tag)
             if view.tag == info.correctAnswerIndex {
-                levelArr[level] = true
+                levelArr[level].isOpen = true
                 let coin = info.coin
                 let vc = WonViewController(coin: coin, level: level)
                 navigationController?.pushViewController(vc, animated: true)

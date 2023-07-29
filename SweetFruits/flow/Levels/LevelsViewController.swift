@@ -10,11 +10,6 @@ import UIKit
 class LevelsViewController: BaseViewController {
 
     private let backIV: UIImageView = UIImageView(image: UIImage(named: "ic_back"))
-//    = {
-//        let btn = UIButton()
-//        btn.setImage(UIImage(named: "ic_back"), for: .normal)
-//        return btn
-//    }()
     
     private let titleView: UIView = {
         let view = UIView()
@@ -92,11 +87,6 @@ class LevelsViewController: BaseViewController {
     private func initAction() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(popToRoot))
         backIV.addGestureRecognizer(gesture)
-            //.addTarget(self, action: #selector(popToRoot), for: .touchUpInside)
-    }
-                          
-    @objc func goHome(_ sender : UIButton) {
-        navigationController?.popToRootViewController(animated: true)
     }
 
 }
@@ -116,7 +106,7 @@ extension LevelsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LevelCollectionViewCell
-        cell.setLevelNumber("\(indexPath.row + 1)", status: levelArr[indexPath.row])
+        cell.setLevelNumber("\(indexPath.row + 1)", status: levelArr[indexPath.row].isOpen)
         return cell
     }
 

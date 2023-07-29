@@ -31,7 +31,7 @@ class WheelViewController: BaseViewController {
     
     private let resultImageView: UIImageView = {
         let bgImage = UIImageView(image: UIImage(named: "ic_wheel_result"))
-        bgImage.contentMode = .scaleAspectFill
+        bgImage.contentMode = .scaleToFill
         return bgImage
     }()
     
@@ -69,7 +69,8 @@ class WheelViewController: BaseViewController {
         view.addSubview(bonusImageView)
         
         wheelImageView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
         }
         
         bonusImageView.snp.makeConstraints { make in
@@ -91,6 +92,11 @@ class WheelViewController: BaseViewController {
     @objc func spinWheel(_ sender: UIButton) {
         spinBtn.isEnabled = false
         
+        let randomIndex = Int.random(in: 0..<2)
+        let question = levelArr[self.level].questions[randomIndex]
+        let vc = QuestionViewController(info: QuestionInfo.elements[randomIndex],
+                                        level: self.level)
+        
         UIView.animate(withDuration: 0.5, animations: {
             self.wheelImageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         })
@@ -103,10 +109,6 @@ class WheelViewController: BaseViewController {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-
-            let randomIndex = Int.random(in: 0..<8)
-            let vc = QuestionViewController(info: QuestionInfo.elements[randomIndex],
-                                            level: self.level)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
